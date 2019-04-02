@@ -4,7 +4,7 @@ import sys
 
 def strreplace(replacefile,sfind,sreplace):
 	s = open(replacefile, 'r').read()
-	e=s.find(sfind)
+	e = s.find(sfind)
 	if e == -1:
 		print('string not found...exiting')
 		sys.exit(1)
@@ -23,7 +23,6 @@ strreplace(replacefile,sfind,sreplace)
 
 #changes to ./Prusa-Firmware/Firmware/ultralcd.cpp
 replacefile='./Prusa-Firmware/Firmware/ultralcd.cpp'
-s = open(replacefile, 'r').read()
 sfind='current_position[E_AXIS] -= 45;'
 sreplace='current_position[E_AXIS] -= 32;'
 strreplace(replacefile,sfind,sreplace)
