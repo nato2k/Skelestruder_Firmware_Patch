@@ -11,7 +11,7 @@ if [ $rc = 1 ]
 then
 	echo "failed updating... exiting"
 else
-    if [ ! Hex-files -d ]
+    if [ ! -d Hex-files ]
     then
         mkdir Hex-files
         echo "creating Hex-files directory to avoid Prusa build script bug"
