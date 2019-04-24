@@ -31,7 +31,7 @@ sfind = 'current_position[E_AXIS] -= 15;\n\tplan_buffer_line(current_position[X_
 sreplace = 'current_position[E_AXIS] -= 10;\n\tplan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 100 / 60, active_extruder);'
 strreplace(replacefile, sfind, sreplace)
 
-#changes to ./Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h, current and microstep for .9 commented out
+#changes to ./Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h comment .9 line if you have 1.8 and uncomment current line for 1.8
 replacefile = './Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h'
 s = open(replacefile, 'r').read()
 
