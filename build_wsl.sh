@@ -15,8 +15,11 @@ else
     then
         mkdir Hex-files
         echo "creating Hex-files directory to avoid Prusa build script bug"
+	else
+		mv Hex-files Hex-files-$(date +%Y%m%d)
+		mkdir Hex-files
     fi
 	echo "compiling firmware"
-	./Prusa-Firmware/PF-build.sh
+	./Prusa-Firmware/PF-build.sh 1_75mm_MK3-EINSy10a-E3Dv6full.h EN_ONLY GOLD
 	echo "complete!"
 fi
