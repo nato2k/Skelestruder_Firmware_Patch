@@ -16,7 +16,8 @@ else
         mkdir Hex-files
         echo "creating Hex-files directory to avoid Prusa build script bug"
 	else
-		mv Hex-files Hex-files-$(date +%Y%m%d%s)
+		echo "removing old Hex-files directory"
+		rm -rf Hex-files
 		mkdir Hex-files
     fi
 	echo "compiling firmware"
@@ -31,6 +32,8 @@ else
 	fwd=$(echo ${fwdir[0]} | cut -d' ' -f 1)
 	fwfile=$(ls $fwd)
 	fwfull=$fwd'/'$fwfile
-	cp $fwfull complete_builds
+	fwnew=$(echo $fwfile | cut -d "-" -f 1-2)
+	cp $fwfull complete_builds/$fwnew-MK3-$(date +%Y%m%d).hex
+	echo "compiled file is located at: $(pwd)/complete_builds/$fwnew-MK3-$(date +%Y%m%d).hex"
 	echo "complete!"
 fi
