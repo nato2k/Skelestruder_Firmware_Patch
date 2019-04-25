@@ -22,16 +22,17 @@ else
     fi
 	echo "compiling firmware"
 	results=$(./Prusa-Firmware/PF-build.sh 1_75mm_MK3-EINSy10a-E3Dv6full.h EN_ONLY GOLD)
-	IFS=':'; fwinfo=($results); unset IFS;
-	IFS=' '; fwdir=(${fwinfo[11]}); unset IFS;
+    fwdir=$(echo $results | sed -n -E -e 's/.*Hex-file Folder: ([^ ]+).*/\1/p')
+	#IFS=':'; fwinfo=($results); unset IFS;
+	#IFS=' '; fwdir=(${fwinfo[11]}); unset IFS;
 	echo "copying hex file to builds directory"
 	if [ ! -d complete_builds ]
 		then
 		mkdir complete_builds
 	fi
-	fwd=$(echo ${fwdir[0]} | cut -d' ' -f 1)
-	fwfile=$(ls $fwd)
-	fwfull=$fwd'/'$fwfile
+	#fwd=$(echo ${fwdir[0]} | cut -d' ' -f 1)
+	fwfile=$(ls $fwdir)
+	fwfull=$fwdir'/'$fwfile
 	fwnew=$(echo $fwfile | cut -d "-" -f 1-2)
 	cp $fwfull complete_builds/$fwnew-MK3-$(date +%Y%m%d).hex
 	echo "compiled file is located at: $(pwd)/complete_builds/$fwnew-MK3-$(date +%Y%m%d).hex"
