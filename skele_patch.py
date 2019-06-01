@@ -24,11 +24,11 @@ strreplace(replacefile, sfind, sreplace)
 #changes to ./Prusa-Firmware/Firmware/ultralcd.cpp
 replacefile = './Prusa-Firmware/Firmware/ultralcd.cpp'
 sfind = 'current_position[E_AXIS] -= 45;'
-sreplace = 'current_position[E_AXIS] -= 32;'
+sreplace = 'current_position[E_AXIS] += 5;\n\tplan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 500 / 60, active_extruder);\n\tst_synchronize();\n\tcurrent_position[E_AXIS] -= 45;'
 strreplace(replacefile, sfind, sreplace)
 
-sfind = 'current_position[E_AXIS] -= 15;\n\tplan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 1000 / 60, active_extruder);'
-sreplace = 'current_position[E_AXIS] -= 10;\n\tplan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 100 / 60, active_extruder);'
+sfind = 'current_position[E_AXIS] -= 15;'
+sreplace = 'current_position[E_AXIS] += 10;\n\tplan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 500 / 60, active_extruder);\n\tst_synchronize();\n\tcurrent_position[E_AXIS] -= 15;'
 strreplace(replacefile, sfind, sreplace)
 
 #changes to ./Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h comment .9 line if you have 1.8 and uncomment current line for 1.8
