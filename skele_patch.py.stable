@@ -36,7 +36,7 @@ replacefile = './Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.
 s = open(replacefile, 'r').read()
 
 sfind = '#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,280}'
-sreplace = '#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,490}'
+sreplace = '#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,980}'
 strreplace(replacefile, sfind, sreplace)
 
 sfind = '#define Z_MAX_POS 210'
@@ -53,7 +53,7 @@ strreplace(replacefile, sfind, sreplace)
 
 #.9 motor.  comment if using 1.8
 sfind = '#define TMC2130_USTEPS_E    32        // microstep resolution for E axis'
-sreplace = '#define TMC2130_USTEPS_E    8        // microstep resolution for E axis'
+sreplace = '#define TMC2130_USTEPS_E    16        // microstep resolution for E axis'
 strreplace(replacefile, sfind, sreplace)
 
 #uncomment to lower motor current consider changing 20 to 36 for 800 mah
