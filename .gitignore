@@ -5,4 +5,5 @@ Hex*
 build-env*
 *.bak
 complete*
-.vscode*
+*.vscode*
+*.stable
