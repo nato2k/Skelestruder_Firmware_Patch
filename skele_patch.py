@@ -58,12 +58,12 @@ strreplace(replacefile, sfind, sreplace)
 
 #uncomment to lower motor current consider changing 20 to 36 for 800 mah
 sfind = '#define TMC2130_CURRENTS_H {16, 20, 35, 30}  // default holding currents for all axes'
-sreplace = '#define TMC2130_CURRENTS_H {20, 20, 35, 26}  // default holding currents for all axes'
-#strreplace(replacefile,sfind,sreplace)
+sreplace = '#define TMC2130_CURRENTS_H {24, 20, 35, 30}  // default holding currents for all axes'
+strreplace(replacefile,sfind,sreplace)
 
 sfind = '#define TMC2130_CURRENTS_R {16, 20, 35, 30}  // default running currents for all axes'
-sreplace = '#define TMC2130_CURRENTS_R {20, 20, 35, 26}  // default running currents for all axes'
-#strreplace(replacefile,sfind,sreplace)
+sreplace = '#define TMC2130_CURRENTS_R {24, 20, 35, 30}  // default running currents for all axes'
+strreplace(replacefile,sfind,sreplace)
 
 #disable forced selftest in ./Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h
 f = open('./Prusa-Firmware/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h', 'a+')
